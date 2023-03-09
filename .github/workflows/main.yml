@@ -1,0 +1,16 @@
+name: Nuclei - Vulnerability Scan
+on: [push]
+permissions:
+  issues: write
+  
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Run Nuclei
+      uses: projectdiscovery/nuclei-action@main
+      with:
+        target: http://103.23.199.226/
+        github-report: true
+        github-token: ${{ secrets.GITHUB_TOKEN }}
