@@ -12,5 +12,6 @@ jobs:
       uses: projectdiscovery/nuclei-action@main
       with:
         target: http://103.23.199.226/
+        flags: "-severity critical,high,medium -stats"
         github-report: true
         github-token: ${{ secrets.GITHUB_TOKEN }}
